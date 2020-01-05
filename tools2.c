@@ -3,7 +3,7 @@
  * callFunction - Function to call functions
  * @tmp: temporal
  * @j: J
- * @file: file
+ * @file: File
  * Return: 1 or 0
  *
 */
@@ -47,12 +47,10 @@ int callFunction(char *tmp, int j, FILE *file)
 	}
 	return (1);
 }
-
 /**
- * checkChar - Function to check Char
- * @string: string
- * Return: 1 or 0
- *
+ * checkChar - Check char
+ * @string: String
+ * Return: Number
 */
 int checkChar(char *string)
 {
