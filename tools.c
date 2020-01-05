@@ -68,13 +68,15 @@ void _nop(stack_t **stack, unsigned int line_number)
  * @line_number: Line number
  * Return: 0
 */
-int _pint(stack_t **stack, unsigned int line_number)
+void _pint(stack_t **stack, unsigned int line_number)
 {
-	if (*stack == NULL || stack == NULL)
+	stack_t *tmp;
+	
+	tmp = *stack;
+	if (tmp == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		return (1);
+		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", (*stack)->n);
-	return (0);
+	printf("%d\n", tmp->n);
 }
