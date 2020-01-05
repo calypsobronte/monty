@@ -28,11 +28,15 @@ int _atoi(char *s)
 */
 void free_dlistint(stack_t **stack)
 {
+	stack_t *temp;
+
 	while (*stack != NULL)
 	{
-		free(*stack);
-		*stack = (*stack)->next;
+		temp = *stack;
+		*stack = temp->next;
+		free(temp);
 	}
+	free(*stack);
 }
 /**
  * sum_2 - Suma 2
@@ -66,17 +70,14 @@ void _nop(stack_t **stack, unsigned int line_number)
  * _pint - pint
  * @stack: Stack
  * @line_number: Line number
- * Return: 0
+ *
 */
 void _pint(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
-	
-	tmp = *stack;
-	if (tmp == NULL)
+	if (*stack == NULL || stack == NULL)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", tmp->n);
+	printf("%d\n", (*stack)->n);
 }
