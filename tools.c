@@ -66,9 +66,9 @@ void _nop(stack_t **stack, unsigned int line_number)
  * _pint - pint
  * @stack: Stack
  * @line_number: Line number
- *
+ * Return: 0
 */
-void _pint(stack_t **stack, unsigned int line_number)
+int _pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL || stack == NULL)
 	{
