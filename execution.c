@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "monty.h"
-stack_t *stack = NULL;
 /**
  * main - main functions
  * @argc: Conunt argumnets
@@ -9,6 +8,7 @@ stack_t *stack = NULL;
 */
 int main(int argc, const char *argv[])
 {
+	stack_t *stack = NULL;
 	FILE *file;
 	char *buffer = NULL;
 	size_t buffer_size = 80;
