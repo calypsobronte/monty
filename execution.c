@@ -88,10 +88,10 @@ void printErrors(int error, int line, char *buffer, FILE *file)
 		case 8:
 			fprintf(stderr, "L%i: can't div, stack too short\n", line);
 			break;
-		case 9:
-			fprintf(stderr, "L%i: division by zero\n", line);
-			break;
 	}
+	if (error > 8)
+		morePrintErrors(error, line, buffer, file);
+
 	if (error != 0)
 	{
 		freeAll(buffer, file);
@@ -108,4 +108,34 @@ void freeAll(char *buffer, FILE *file)
 	free(buffer);
 	free_dlistint(&stack);
 	fclose(file);
+}
+/**
+ * morePrintErrors - Print Error
+ * @error: Number of error
+ * @line: Line number
+ * @buffer: Buffer
+ * @file: File
+*/
+void morePrintErrors(int error, int line, char *buffer, FILE *file)
+{
+	switch (error)
+	{
+		case 9:
+			fprintf(stderr, "L%i: division by zero\n", line);
+			break;
+		case 10:
+			fprintf(stderr, "L%i: can't mul, stack too short\n", line);
+			break;
+		case 11:
+			fprintf(stderr, "L%i: can't mod, stack too short\n", line);
+			break;
+		case 12:
+			fprintf(stderr, "L%i: division by zero\n", line);
+			break;
+	}
+	if (error != 0)
+	{
+		freeAll(buffer, file);
+		exit(EXIT_FAILURE);
+	}
 }
