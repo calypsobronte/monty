@@ -85,12 +85,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 {
 	int tmp = 0;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-	{
-		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
-		free_dlistint(stack);
-		exit(EXIT_FAILURE);
-	}
+	line_number = line_number;
 	tmp = (*stack)->n;
 	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = tmp;
@@ -104,21 +99,9 @@ void _swap(stack_t **stack, unsigned int line_number)
 */
 void _add(stack_t **stack, unsigned int line_number)
 {
-	int i = 0;
 	stack_t *temp;
 
-	temp = (*stack);
-
-	while (temp)
-	{
-		i++;
-		temp = temp->next;
-	}
-	if (i < 2)
-	{
-		fprintf(stderr, "L%d: can't add, stack too sstackort\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+	line_number = line_number;
 	temp = (*stack)->next;
 	(*stack)->next->n += (*stack)->n;
 	free(*stack);
