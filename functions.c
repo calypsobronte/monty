@@ -105,11 +105,11 @@ void _swap(stack_t **stack, unsigned int line_number)
 void _add(stack_t **stack, unsigned int line_number)
 {
 	int i = 0;
-    	stack_t *temp;
+	stack_t *temp;
 
 	temp = (*stack);
 
-	wstackile (temp)
+	while (temp)
 	{
 		i++;
 		temp = temp->next;
