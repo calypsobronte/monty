@@ -29,6 +29,8 @@ int main(int argc, const char *argv[])
 	}
 	while (getline(&buffer, &buffer_size, file) != -1)
 	{
+		if (buffer[0] == '#')
+			continue;
 		printErrors(callFunction(buffer, j), j, buffer, file);
 		j++;
 	}
@@ -131,6 +133,12 @@ void morePrintErrors(int error, int line, char *buffer, FILE *file)
 			break;
 		case 12:
 			fprintf(stderr, "L%i: division by zero\n", line);
+			break;
+		case 13:
+			fprintf(stderr, "L%i: can't pchar, stack empty\n", line);
+			break;
+		case 14:
+			fprintf(stderr, "L%i: can't pchar, value out of range\n", line);
 			break;
 	}
 	if (error != 0)
